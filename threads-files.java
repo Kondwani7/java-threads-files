@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Collections;
 import java.util.Vector;
 import java.util.Iterator;
+import java.io.File; 
+import java.io.IOException;
+
+
 
 class Loader2 implements Runnable{
     public void run(){
@@ -62,10 +66,25 @@ class Myclass{
    while(it1.hasNext()){
      String value = it1.next();
      System.out.println(value);
+
+     //creating a file
+     try{
+       File kObj = new File("Testfile.txt");
+       if (kObj.createNewFile()){
+         System.out.println("Test file created: " +  kObj.getName());
+       }else{
+         System.out.println("Test file name alreadyu exists");
+       }
+     } catch(IOException e){
+       System.out.println("A file creation error");
+       e.printStackTrace();
+     }
+    }
+
    }
 
    }
 
    
 
-}
+
